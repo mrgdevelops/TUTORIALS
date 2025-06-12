@@ -1,0 +1,104 @@
+	Master GIT & GitHub in easy way
+https://youtu.be/9ToMEN_Hys0?si=8P563ASpBvZjBnSk
+
+--- --- ---
+
+	Git vs. GitHub:
+Git - version control system. Powers everything behind the scenes. Tracks changes. It's line time-machine. It's like having an infinite numer of "UNDO" buttons.
+GitHub - online REPOSITORY for storing code, sharing, collaborating
+
+Git Bash - it's a TERMINAL. Like Control center for your Git.
+
+--- --- --- --- --- --- --- Creating GIT repository in LOCAL MACHINE, then pushing to GitHub --- --- --- --- --- --- ---
+
+					Git (LOCAL)
+
+	MAIN COMMANDS:
+
+git init
+	- tells Git to start tracking the project
+	- INITIALIZES Git in your project
+	- creates .git hidden folder in your project directory
+git add .
+	- adds (stages) ALL the files (sends them to a STAGING area, which is like a waiting room)
+	- to save the progress; prepares your changes
+	- or: git add <file_name> - adds SPECIFIC file
+git status
+	- to CHECK what's in your STAGING area (changes to be COMMITTED)
+git commit -m "Initial commit"
+	- it's lake "SAVE" button. To SAVE changes in Git. The changes become part of your project history.
+
+--- --- --- --- --- --- ---
+
+					GIT + GitHub
+
+Now create you GitHub repository.
+
+		To CONNECT your LOCAL Git to GitHub:
+
+git branch -M main
+	- renames your current branch to "main" (if it was previously named "master")
+git remote add origin https://github.com/mrgdevelops/gittutorial1.git
+	- this command tells Git were your REMOTE repository is located
+git push -u origin main
+	- sends changes from your local machine to online repository (like UPLOAD your project to the Cloud)
+	- now you can PUSH yor code with this command from GitBash or from VSCode menu, or from Terminal within VSCode
+
+
+	BACKWARDS PROCESS:
+
+	First create GitHub repository, than clone it to the local machine like this:
+git clone https://github.com/mrgdevelops/transportation-data.git
+
+--- --- --- --- --- --- ---
+--- --- --- --- --- --- ---
+
+	UNDOING THINGS:
+
+git log
+	- shows commit history (commit changes)
+git log --oneline
+	- the same, but more readable
+git checkout e2c3bef
+	- goes to "detached HEAD" state, you can explore commit
+git checkout main
+	- return to main
+git revert e2c3bef
+	- to roll-back
+	- reverts to specified commit (time-machine)
+git reset --hard <commit-hash>
+	- RESET THE WORLD
+	- WIPES EVERYTHING BACK TO A SPECIFIC COMMIT
+	- use only when youn need a FRESH START
+
+--- --- --- --- --- --- ---
+
+	BRANCHES:
+
+They are like Save Slot
+Workflow working with branches: Create --> Merge --> Delete
+
+git checkout main
+	- change to a branch, "main" in this case
+git branch contact-form
+	- CREATES a branch
+git checkout contact-form
+	- SWITCHES TO a branch to start working with it
+git checkout -b contact-form
+	- to speed up the workflow
+	- creates new branch and swithes to it IN ONE COMMAND
+
+... make some changes, they all are made WITHIN THE CURRENT BRANCH ...
+
+
+git status
+	- shows current branch
+git add .
+git commit -m "added contact form"
+
+git checkout main
+	- return to main branch
+git merge contact-form
+	- merges (COMBINES) the changes INTO the main branch
+git branch -d contact-form
+	- DELETE contact-form branch after merging
